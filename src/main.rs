@@ -27,9 +27,17 @@ fn main() {
                 .short('f')
                 .long("filter")
                 .value_name("FILTER")
-                .help("Specifies the filter to apply (grayscale, edges, invert, brightness)")
+                .help("Specifies the filter to apply (grayscale, brightness)")
                 .required(true)
                 .takes_value(true),
+        )
+        .arg(
+            Arg::with_name("adjustment")
+                .short('a')
+                .long("adjustment")
+                .value_name("ADJUSTMENT")
+                .help("Adjustment value for filters that take an adjustment value (brightness)")
+                .takes_value(true)
         )
         .arg(
             Arg::with_name("width")
@@ -61,7 +69,7 @@ fn main() {
         Some("grayscale") => Box::new(filters::GrayscaleFilter),
         Some("brightness") => {
             let adjustment: i32 = matches
-                .value_of("brightness")
+                .value_of("adjustment")
                 .expect("Missing brightness value")
                 .parse()
                 .expect("Invalid brightness value");
