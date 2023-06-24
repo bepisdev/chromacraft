@@ -1,40 +1,62 @@
-## ChromaCraft
+Certainly! Here's an updated version of the README.md file with the list of available filters (grayscale, brightness, and invert) and the usage instructions for the adjustment flag of the brightness filter:
 
-ChromaCraft is a command-line tool for image processing and filtering built with Rust. It provides a collection of filters that can be applied to images to enhance, modify, or transform them. With ChromaCraft, you can easily manipulate images and unleash your creativity.
+```markdown
+# ChromaCraft
 
-### Usage
+ChromaCraft is a command-line image processing tool that allows you to apply various filters to your images. It is built using Rust and provides a simple way to enhance and modify images.
 
-```plaintext
-chromacraft --input <INPUT> --output <OUTPUT> --filter <FILTER> [--width <WIDTH>] [--height <HEIGHT>]
-```
+## Available Filters
 
-- `<INPUT>`: Specifies the path to the input image file.
-- `<OUTPUT>`: Specifies the path to save the output image file.
-- `<FILTER>`: Specifies the filter to apply to the image. Available filters are:
-  - `grayscale`: Converts the image to grayscale.
-  - `edges`: Finds and highlights edges in the image.
-  - `invert`: Inverts the colors of the image.
-  - `brightness <VALUE>`: Adjusts the brightness of the image by adding the specified value to each pixel. `<VALUE>` can be positive or negative.
-- `--width <WIDTH>` (optional): Specifies the desired width of the output image.
-- `--height <HEIGHT>` (optional): Specifies the desired height of the output image.
+- Grayscale: Converts the image to grayscale.
+- Brightness: Adjusts the brightness of the image.
+- Invert: Inverts the pixels of the image.
 
-If the `--width` or `--height` options are not provided, ChromaCraft will use the original dimensions of the input image for the output.
+## Usage
+
+To run ChromaCraft, you need to have Rust installed on your system. Follow the official Rust installation guide at [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install) to install Rust.
+
+### Command-line Arguments
+
+ChromaCraft accepts the following command-line arguments:
+
+- `-i`, `--input`: Sets the input image file path.
+- `-o`, `--output`: Sets the output image file path.
+- `-f`, `--filter`: Specifies the filter to apply. Available options: `grayscale`, `brightness`, `invert`.
+- `-a`, `--adjustment`: Adjustment value for the brightness filter (optional).
+- `-w`, `--width`: Sets the width of the output image (optional).
+- `-h`, `--height`: Sets the height of the output image (optional).
 
 ### Examples
 
-Convert an image to grayscale:
+Apply the grayscale filter to an image:
 
-```plaintext
-chromacraft --input input.png --output output.png --filter grayscale
+```bash
+$ chromacraft -i input.jpg -o output.jpg -f grayscale
 ```
-### Note
 
-The dimensions specified using `--width` and `--height` should maintain the aspect ratio of the image to avoid distortion.
+Adjust the brightness of an image by specifying the adjustment value:
 
-## Contributing
+```bash
+$ chromacraft -i input.jpg -o output.jpg -f brightness -a 50
+```
 
-Contributions to ChromaCraft are welcome! If you have any ideas, improvements, or bug fixes, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/joshburnsxyz/chromacraft).
+Invert the pixels of an image:
+
+```bash
+$ chromacraft -i input.jpg -o output.jpg -f invert
+```
+
+Resize an image by specifying the width and height:
+
+```bash
+$ chromacraft -i input.jpg -o output.jpg -w 800 -h 600
+```
+
+If you don't specify the width and height, the output image will have the same dimensions as the processed image.
 
 ## License
 
-ChromaCraft is released under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](LICENSE).
+```
+
+Feel free to adjust the content as needed. Let me know if there's anything else I can assist you with!
