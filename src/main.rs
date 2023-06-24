@@ -67,6 +67,7 @@ fn main() {
     // Determine the filter based on the command-line argument
     let filter: Box<dyn filters::ImageFilter> = match matches.value_of("filter") {
         Some("grayscale") => Box::new(filters::GrayscaleFilter),
+        Some("invert") => Box::new(filters::InvertFilter),
         Some("brightness") => {
             let adjustment: i32 = matches
                 .value_of("adjustment")
