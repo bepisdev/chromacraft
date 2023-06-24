@@ -27,7 +27,7 @@ fn main() {
                 .short('f')
                 .long("filter")
                 .value_name("FILTER")
-                .help("Specifies the filter to apply (grayscale, brightness, invert)")
+                .help("Specifies the filter to apply (grayscale, brightness, contrast)")
                 .required(true)
                 .takes_value(true),
         )
@@ -36,7 +36,7 @@ fn main() {
                 .short('a')
                 .long("adjustment")
                 .value_name("ADJUSTMENT")
-                .help("Adjustment value for filters that take an adjustment value (brightness)")
+                .help("Adjustment value for filters that take an adjustment value (brightness, contrast)")
                 .takes_value(true)
         )
         .arg(
