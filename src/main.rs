@@ -75,7 +75,8 @@ fn main() {
                 .parse()
                 .expect("Invalid brightness value");
             Box::new(filters::BrightnessFilter { adjustment })
-        }
+        },
+
         _ => panic!("Unknown filter"),
     };
 
