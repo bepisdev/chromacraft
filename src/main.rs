@@ -68,6 +68,7 @@ fn main() {
     let filter: Box<dyn filters::ImageFilter> = match matches.value_of("filter") {
         Some("grayscale") => Box::new(filters::GrayscaleFilter),
         Some("invert") => Box::new(filters::InvertFilter),
+        Some("edges") => Box::new(filters::EdgeDetectionFilter),
         Some("brightness") => {
             let adjustment: i32 = matches
                 .value_of("adjustment")
