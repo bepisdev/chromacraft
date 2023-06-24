@@ -27,7 +27,7 @@ fn main() {
                 .short('f')
                 .long("filter")
                 .value_name("FILTER")
-                .help("Specifies the filter to apply (grayscale, brightness, contrast)")
+                .help("Specifies the filter to apply (grayscale, brightness, contrast, edges)")
                 .required(true)
                 .takes_value(true),
         )
