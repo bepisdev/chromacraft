@@ -1,12 +1,12 @@
 use clap::{App, Arg};
-use image::{DynamicImage, GenericImageView};
+use image::GenericImageView;
 mod filters;
 
 fn main() {
     let matches = App::new("Image Filter")
         .arg(
             Arg::with_name("input")
-                .short("i")
+                .short('i')
                 .long("input")
                 .value_name("INPUT")
                 .help("Sets the input image file")
@@ -15,7 +15,7 @@ fn main() {
         )
         .arg(
             Arg::with_name("output")
-                .short("o")
+                .short('o')
                 .long("output")
                 .value_name("OUTPUT")
                 .help("Sets the output image file")
@@ -24,7 +24,7 @@ fn main() {
         )
         .arg(
             Arg::with_name("filter")
-                .short("f")
+                .short('f')
                 .long("filter")
                 .value_name("FILTER")
                 .help("Specifies the filter to apply (grayscale, edges, invert, brightness)")
@@ -33,7 +33,7 @@ fn main() {
         )
         .arg(
             Arg::with_name("width")
-                .short("w")
+                .short('w')
                 .long("width")
                 .value_name("WIDTH")
                 .help("Sets the width of the output image")
@@ -41,7 +41,7 @@ fn main() {
         )
         .arg(
             Arg::with_name("height")
-                .short("h")
+                .short('h')
                 .long("height")
                 .value_name("HEIGHT")
                 .help("Sets the height of the output image")
@@ -58,6 +58,7 @@ fn main() {
 
     // Determine the filter based on the command-line argument
     let filter: Box<dyn filters::ImageFilter> = match matches.value_of("filter") {
+        Some("grayscale") => Box::new(filters::GrayscaleFilter),
         _ => panic!("Unknown filter"),
     };
 
