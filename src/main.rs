@@ -76,6 +76,14 @@ fn main() {
                 .expect("Invalid brightness value");
             Box::new(filters::BrightnessFilter { adjustment })
         },
+        Some("contrast") => {
+            let adjustment: i32 = matches
+                .value_of("adjustment")
+                .expect("Missing contast value")
+                .parse()
+                .expect("Invalid contast value");
+            Box::new(filters::ContrastFilter{ adjustment })
+        },
 
         _ => panic!("Unknown filter"),
     };
