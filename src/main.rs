@@ -59,6 +59,16 @@ fn main() {
     // Determine the filter based on the command-line argument
     let filter: Box<dyn filters::ImageFilter> = match matches.value_of("filter") {
         Some("grayscale") => Box::new(filters::GrayscaleFilter),
+        Some("edges") => Box::new(filters::EdgesFilter),
+        Some("invert") => Box::new(filters::InvertFilter),
+        Some("brightness") => {
+            let adjustment: i32 = matches
+                .value_of("brightness")
+                .expect("Missing brightness value")
+                .parse()
+                .expect("Invalid brightness value");
+            Box::new(filters::BrightnessFilter { adjustment })
+        }
         _ => panic!("Unknown filter"),
     };
 
