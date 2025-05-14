@@ -79,7 +79,7 @@ To build ChromaCraft from source, follow these steps:
 1. Clone the ChromaCraft repository from GitHub using Git:
 
 ```bash
-$ git clone https://github.com/joshburnsxyz/chromacraft.git
+$ git clone https://github.com/bepisdev/chromacraft.git
 ```
 
 2. Navigate to the project directory:
